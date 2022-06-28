@@ -78,7 +78,7 @@ func main() {
 	//Run
 	helper.SendNotify("Server Running", "Server Running On Port "+port)
 	s.StartAsync()
-	g.Run(port)
+	g.Run(":" + port)
 }
 
 func HomeHandler(c *gin.Context) {

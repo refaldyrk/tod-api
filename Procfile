@@ -1,1 +1,1 @@
-web: ./tod.exe
+web: tod
