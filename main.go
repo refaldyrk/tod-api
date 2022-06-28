@@ -22,10 +22,9 @@ func main() {
 	//Job Scheduler
 	s := gocron.NewScheduler(time.UTC)
 	s.Every(27).Minute().Do(func() {
-		resp, err := http.Get("https://todapi-rafael.herokuapp.com/api")
+		resp, err := http.Get("https://todapi-rafael.herokuapp.com/api/home")
 
 		if err != nil {
-			go helper.SendNotify("Error", "Error in scheduler")
 			log.Fatal(err)
 		}
 
@@ -34,7 +33,6 @@ func main() {
 		body, err := ioutil.ReadAll(resp.Body)
 
 		if err != nil {
-			go helper.SendNotify("Error", "Error reading response body")
 			log.Fatal(err)
 		}
 
@@ -61,12 +59,11 @@ func main() {
 
 	//Gin
 	g := gin.Default()
-	gin.SetMode(gin.ReleaseMode)
 
 	//Router
 	karine := g.Group("/api")
 
-	karine.GET("/", HomeHandler)
+	karine.GET("/home", HomeHandler)
 
 	//Apikey
 	karine.GET("/apikey/check", handlerApikey.CheckApikeyHandler)
