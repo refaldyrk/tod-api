@@ -56,8 +56,10 @@ func (h *handler) CreateDataHandler(c *gin.Context) {
 		return
 	}
 
+	dataFormatter := ToSingleData(data)
+
 	c.JSON(200, gin.H{
-		"data": data,
+		"data": dataFormatter,
 	})
 }
 
@@ -96,8 +98,9 @@ func (h *handler) GetDataHandler(c *gin.Context) {
 			})
 			return
 		}
+		dataFormatter := ToManyData(data)
 		c.JSON(200, gin.H{
-			"data": data,
+			"data": dataFormatter,
 		})
 	case "dare":
 		data, err := h.repo.GetAllDareData(ctx)
@@ -107,8 +110,9 @@ func (h *handler) GetDataHandler(c *gin.Context) {
 			})
 			return
 		}
+		dataFormatter := ToManyData(data)
 		c.JSON(200, gin.H{
-			"data": data,
+			"data": dataFormatter,
 		})
 	default:
 		c.JSON(400, gin.H{
