@@ -22,7 +22,7 @@ func main() {
 	//Job Scheduler
 	s := gocron.NewScheduler(time.UTC)
 	s.Every(27).Minute().Do(func() {
-		resp, err := http.Get("https://todapi-rafael.herokuapp.com/api/home")
+		resp, err := http.Get("URL HEROKU JIKA HOSTING DI HEROKU")
 
 		if err != nil {
 			log.Fatal(err)
@@ -40,7 +40,7 @@ func main() {
 	})
 
 	ctx := context.Background()
-	client, err := qmgo.NewClient(ctx, &qmgo.Config{Uri: "mongodb+srv://efal:michellecantik@efalapi.s7yfi.mongodb.net/?retryWrites=true&w=majority"})
+	client, err := qmgo.NewClient(ctx, &qmgo.Config{Uri: "URL MONGODB ATLAS	"})
 	if err != nil {
 		go helper.SendNotify("Error Connect To MongoDb", err.Error())
 		panic(err)

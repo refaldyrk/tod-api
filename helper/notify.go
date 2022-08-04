@@ -8,9 +8,9 @@ import (
 )
 
 func SendNotify(subj, text string) {
-	telegramService, _ := telegram.New("5561567514:AAHtzrHCaVUTGVCmEiwFKUwO3pwqNa2dPpg")
+	telegramService, _ := telegram.New("ID BOT TELEGRAM")
 
-	telegramService.AddReceivers(1993082483)
+	telegramService.AddReceivers(123456)
 	notify.UseServices(telegramService)
 
 	_ = notify.Send(

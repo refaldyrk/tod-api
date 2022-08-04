@@ -12,7 +12,7 @@ func NewHandler(repo Repository) *handler {
 
 func (h *handler) GetAllApikeyHandler(c *gin.Context) {
 	apikeyyyy := c.Query("apikey")
-	if apikeyyyy != "karinecantikbanget" {
+	if apikeyyyy != "root" {
 		c.JSON(400, gin.H{
 			"error": "Invalid Apikey",
 		})
@@ -29,7 +29,7 @@ func (h *handler) GetAllApikeyHandler(c *gin.Context) {
 
 func (h *handler) CreateApikeyHandler(c *gin.Context) {
 	apikeyyyy := c.Query("apikey")
-	if apikeyyyy != "karinecantikbanget" {
+	if apikeyyyy != "root" {
 		c.JSON(400, gin.H{
 			"error": "Invalid Apikey",
 		})
@@ -63,7 +63,7 @@ func (h *handler) CreateApikeyHandler(c *gin.Context) {
 
 func (h *handler) DeleteApikeyHandler(c *gin.Context) {
 	apikeyyyy := c.Query("apikey")
-	if apikeyyyy != "karinecantikbanget" {
+	if apikeyyyy != "root" {
 		c.JSON(400, gin.H{
 			"error": "Invalid Apikey",
 		})
@@ -89,7 +89,7 @@ func (h *handler) DeleteApikeyHandler(c *gin.Context) {
 
 func (h *handler) CheckApikeyHandler(c *gin.Context) {
 	apikeyyyy := c.Query("apikey")
-	if apikeyyyy != "karinecantikbanget" {
+	if apikeyyyy != "root" {
 		c.JSON(400, gin.H{
 			"error": "Invalid Apikey",
 		})
